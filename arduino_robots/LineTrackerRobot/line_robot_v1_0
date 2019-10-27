@@ -1,0 +1,71 @@
+//MOTORS
+//LEFT MOTOR:
+#define MOT_L1   11   //PWM PIN IN1
+#defene MOT_L2   2    //PWM PIN IN2
+//RIGHT MOTPOR:
+#defene MOT_R1   10   //PWM PIN IN3
+#defene MOT_R2    9   //PWM PIN IN4
+
+
+//LEFT MOTOR
+int IN1 = 11; //PWM PIN
+int IN2 = 3; //PWM PIN
+//RIGHT MOTOR 
+int IN3 = 10; //PWM PIN
+int IN4 = 9; //PWM PIN
+
+int led = 13;
+
+int mot_speed = 200; //SPEED
+
+void setup() {
+ pinMode(3, OUTPUT);
+ pinMode(9, OUTPUT);
+ pinMode(10, OUTPUT);
+ pinMode(11, OUTPUT);
+
+}
+
+void loop() {
+ delay(2000);
+ left_motor_forward();
+ right_motor_forward();
+ delay(3000);
+ left_motor_stop();
+ right_motor_stop();
+ delay(2000);
+ left_motor_back();
+ right_motor_back();
+ delay(3000);
+ left_motor_stop();
+ right_motor_stop();
+ delay(2000);
+}
+// LEFT MOTOR FUNCTIONS
+void left_motor_forward() {
+  digitalWrite(IN1,0);
+  analogWrite(IN2,mot_speed);
+}
+void left_motor_back() {
+  analogWrite(IN1,mot_speed);
+  digitalWrite(IN2,0);
+}
+void left_motor_stop(){
+  digitalWrite(IN1,0);
+  digitalWrite(IN2,0);
+}
+
+// RIGHT MOTOR FUNCTIONS
+void right_motor_forward() {
+  digitalWrite(IN3,0);
+  analogWrite(IN4,mot_speed);
+}
+void right_motor_back() {
+  analogWrite(IN3,mot_speed);
+  digitalWrite(IN4,0);
+}
+void right_motor_stop(){
+  digitalWrite(IN3,0);
+  digitalWrite(IN4,0);
+}
+
